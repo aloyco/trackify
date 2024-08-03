@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackify | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ffe6f7, #fff0f5);
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .sidebar .logo {
+            font-family: 'Chewy', cursive;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #6a00ff;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background: linear-gradient(to right, #ffe6f7, #fff0f5);
+        }
+        .welcome {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .card {
+            background: #ffe6f7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .card .title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .balance {
+            background: #6a00ff;
+            color: white;
+        }
+        .totalbal {
+            background: grey;
+            color: white;
+        }
+        .liabilities {
+            background: #ff9800;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Trackify</div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="insight.html">Insight</a>
+        <a href="wallet.html">Trackify Wallet</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="tips.html">Tips</a>
+        <a href="index.html">Logout</a>
+        <a href="help.html">Help</a>
+    </div>
+    <div class="main-content">
+        <div class="welcome">Welcome, John Doe.</div>
+        <div class="card totalbal">
+            <div class="title">Total Balance</div>
+            <div class="totalbal" id="totalbal">SGD 0.00</div>
+        </div>
+        <div class="card balance">
+            <div class="title">Trackify Wallet Balance</div>
+            <div class="balance" id="balance">SGD 0.00</div>
+            <button class="top-up-button" onclick="topUp()">Top Up Trackify Wallet</button>
+        </div>
+        <div class="card liabilities">
+            <div class="title">Liabilities</div>
+            <div class="liabilities" id="liabilities">SGD 0.00</div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTotalBalance();
+            updateTrackifyBalance();
+            updateLiabilities();
+        });
+
+        function updateTotalBalance() {
+            const bankBalances = JSON.parse(localStorage.getItem('bankBalances')) || [];
+            const cardBalances = JSON.parse(localStorage.getItem('cardBalances')) || [];
+            const insightBal = bankBalances.reduce((total, item) => total + item.balance, 0);
+            const liabilities = cardBalances.reduce((total, item) => total + item.balance, 0);
+
+            const balance = parseFloat(localStorage.getItem('balance')) || 0;
+            const totalBal = insightBal + balance;
+
+            document.getElementById('totalbal').innerText = `SGD ${totalBal.toFixed(2)}`;
+        }
+
+        function updateTrackifyBalance() {
+            const balance = parseFloat(localStorage.getItem('balance')) || 0;
+            document.getElementById('balance').innerText = `SGD ${balance.toFixed(2)}`;
+        }
+
+        function updateLiabilities() {
+            const cardBalances = JSON.parse(localStorage.getItem('cardBalances')) || [];
+            const liabilities = cardBalances.reduce((total, item) => total + item.balance, 0);
+            document.getElementById('liabilities').innerText = `SGD ${liabilities.toFixed(2)}`;
+        }
+
+        function topUp() {
+            window.location.href = 'topup.html';
+        }
+    </script>
+</body>
+</html>

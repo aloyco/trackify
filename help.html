@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackify | Help</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ffe6f7, #fff0f5);
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .sidebar .logo {
+            font-family: 'Chewy', cursive;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #6a00ff;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            width: calc(100% - 250px);
+        }
+        .contact-info {
+            background: #ffe6f7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .contact-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #6a00ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-primary:hover {
+            background-color: #5a00cc;
+        }
+        .response-message {
+            display: none;
+            background: #e0ffe0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Trackify</div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="insight.html">Insight</a>
+        <a href="wallet.html">Trackify Wallet</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="tips.html">Tips</a>
+        <a href="index.html">Logout</a>
+        <a href="help.html">Help</a>
+    </div>
+    <div class="main-content">
+        <div class="contact-info">
+            <h2>Support Contact Information</h2>
+            <p>Email: <a href="mailto:support@trackify.co">support@trackify.co</a></p>
+            <p>Phone: +65 8880 8888</p>
+            <p>Address: 9 Woodlands Ave 9, Singapore 738964</p>
+        </div>
+        <div class="contact-form">
+            <div class="title">Contact Us</div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+            </div>
+            <button type="submit" class="btn-primary" onclick="showAlert()">Submit</button>
+        </div>
+        <div class="response-message" id="responseMessage">
+            Your request has been sent to the support team. Please wait up to 3-5 working days.
+        </div>
+    </div>
+    <script>
+        function showAlert() {
+            document.getElementById('responseMessage').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('responseMessage').style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

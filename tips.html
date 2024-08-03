@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackify | Tips</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ffe6f7, #fff0f5);
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .sidebar .logo {
+            font-family: 'Chewy', cursive;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #6a00ff;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background: linear-gradient(to right, #ffe6f7, #fff0f5);
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: black;
+        }
+        .disclaimer {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .disclaimer p {
+            margin: 10px 0;
+        }
+        .card-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .card-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        .card-item img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .card-item .card-info {
+            flex-grow: 1;
+        }
+        .card-item .card-info .title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .card-item .card-info .details {
+            margin-bottom: 5px;
+            color: #666;
+        }
+        .card-item .card-info .apply-btn {
+            background-color: #6a00ff;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .card-item .card-info .apply-btn:hover {
+            background-color: #8000ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Trackify</div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="insight.html">Insight</a>
+        <a href="wallet.html">Trackify Wallet</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="tips.html">Tips</a>
+        <a href="index.html">Logout</a>
+        <a href="help.html">Help</a>
+    </div>
+    <div class="main-content">
+        <h2>Cashback Based on Spending</h2>
+        <div class="disclaimer">
+            <p><strong>⚠ By the fair trading act, we are required to disclose that we may earn commission when you apply for products here.</strong></p>
+            <p>All cards have their own exclusions, please refer to the respective credit card reward T&Cs.</p>
+        </div>
+        <ul class="card-list">
+            <li class="card-item">
+                <img src="sc_simplycash.png" alt="Standard Chartered SimplyCash">
+                <div class="card-info">
+                    <div class="title">Standard Chartered Simply Cash Credit Card</div>
+                    <div class="details">All category 1.5%</div>
+                    <div class="details">Minimum Spend: $0</div>
+                    <div class="details">All category: 1.5%</div>
+                    <a href="https://www.sc.com/sg/promotions/referral-signup/?referId=EC9D3" class="apply-btn" target="_blank">Apply Now</a>
+                </div>
+            </li>
+            <li class="card-item">
+                <img src="hsbc_liveplus.png" alt="HSBC Live+">
+                <div class="card-info">
+                    <div class="title">HSBC Live+ Credit Card</div>
+                    <div class="details">0% cashback for $0 spending; 8% cashback on dining, entertainment, shopping if $600 spending and above; 0.3% on other categories, capped at $200 cashback total</div>
+                    <div class="details">Minimum Spend: $600</div>
+                    <div class="details">Dining, entertainment and shopping: 8%</div>
+                    <div class="details">Other categories: 0.3%</div>
+                    <a href="https://www.hsbc.com.sg/credit-cards/products/liveplus/" class="apply-btn" target="_blank">Apply Now</a>
+                </div>
+            </li>
+            <li class="card-item">
+                <img src="hsbc_advance.png" alt="HSBC Advance">
+                <div class="card-info">
+                    <div class="title">HSBC Advance Credit Card</div>
+                    <div class="details">0% cashback for $0 spending; 2.5% cashback on all categories if $2,000 spending and above</div>
+                    <div class="details">Minimum spend: $0</div>
+                    <div class="details">All category: 1.5%</div>
+                    <div class="details">Minimum spend: $2,000</div>
+                    <div class="details">All category: 2.5%</div>
+                    <a href="https://www.hsbc.com.sg/credit-cards/products/advance/" class="apply-btn" target="_blank">Apply Now</a>
+                </div>
+            </li>
+            <li class="card-item">
+                <img src="cimb_visasignature.png" alt="CIMB Visa Signature">
+                <div class="card-info">
+                    <div class="title">CIMB Visa Signature Card</div>
+                    <div class="details">0.2% cashback for $0 spending; 10% cashback on beauty & wellness, grocery, other categories 0.2% if $800 spending and above</div>
+                    <div class="details">Minimum spend: $800</div>
+                    <div class="details">Online Shopping, Groceries, Beauty & Wellness, Pet Shops, Veterinary Services & Cruises: 10% cashback</div>
+                    <div class="details">Other categories: 0.2%</div>
+                    <a href="https://www.cimb.com.sg/en/personal/banking-with-us/cards/credit-cards/cimb-visa-signature.html" class="apply-btn" target="_blank">Apply Now</a>
+                </div>
+            </li>
+            <li class="card-item">
+                <img src="citi_cashbackplus.png" alt="Citi Cash Back+">
+                <div class="card-info">
+                    <div class="title">Citi Cash Back+ Card</div>
+                    <div class="details">All category 1.6% cashback</div>
+                    <div class="details">Minimum Spend: $0</div>
+                    <div class="details">All category: 1.6%</div>
+                    <a href="https://www.citibank.com.sg/credit-cards/cashback/cashback-plus-card/" class="apply-btn" target="_blank">Apply Now</a>
+                </div>
+            </li>
+            <li class="card-item">
+                <img src="uob_one.png" alt="UOB One">
+                <div class="card-info">
+                    <div class="title">UOB One Card</div>
+                    <div class="details">0% cashback for $0 spending; 3.33% cashback in blocks of $500, $1000, $2000; Extra cashback 5% ($500, $1000 spending) or 6.67% ($2000 spending) for McDonald's, DFI Retail Group, Grab, Shopee SG, Bus/MRT; 1% for Singapore Power utilities bill</div>
+                    <div class="details">Minimum Spend: $500</div>
+                    <div class="details">All category: 3.33% (in blocks of $500, $1000, $2000)</div>
+                    <div class="details">Extra cashback: 5% ($500, $1000 spending) or 6.67% ($2000 spending) for specified categories</div>
+                    <a href="https://www.uob.com.sg/personal/cards/cashback/one-card.page" class="apply-btn" target="_blank">Apply Now</a>
+                </div>
+            </li>
+            <li class="card-item">
+                <img src="maybank_familyfriends.png" alt="Maybank Family & Friends">
+                <div class="card-info">
+                    <div class="title">Maybank Family & Friends Card</div>
+                    <div class="details">0.3% cashback for $0 spending; 8% cashback on groceries, dining, transport, entertainment, beauty & wellness if $800 spending and above</div>
+                    <div class="details">Minimum Spending: $800</div>
+                    <div class="details">Pick 5 categories from 10 to get 8% cashback</div>
+                    <a href="https://www.maybank2u.com.sg/personal/cards/family-friends.jsp" class="apply-btn" target="_blank">Apply Now</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

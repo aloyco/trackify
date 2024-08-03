@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackify | AML Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #ffe6f7, #fff0f5);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            text-align: center;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-family: 'Chewy', cursive;
+            font-size: 2rem;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: black;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: black;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #6a00ff;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #8000ff;
+        }
+        img {
+            width: 50%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+        .upload-label {
+            display: none;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .file-input {
+            display: none;
+        }
+        .additional-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">Trackify</div>
+    <div class="container">
+        <h2>KYC Verification</h2>
+        <p>Due to AML regulations set by the Monetary Authority of Singapore (MAS), you have to fill out the following information in order for the creation of your Trackify account.</p>
+        <a href="aml_singpass.html">
+            <img src="singpass.png" alt="SingPass">
+        </a>
+        <form id="amlForm">
+            <input type="text" id="fullName" placeholder="Full Name" required>
+            <select id="documentType" required>
+                <option value="">Select Type of Document</option>
+                <option value="Singaporean Citizen">Singaporean Citizen / PR</option>
+                <option value="Work Permit">Work Permit</option>
+                <option value="S Pass">S Pass</option>
+                <option value="Employment Pass">Employment Pass</option>
+                <option value="Student's Pass">Student's Pass</option>
+                <option value="Dependent's Pass">Dependent's Pass</option>
+            </select>
+            <label for="identityFront" id="identityFrontLabel" class="upload-label">Upload Front of Identification Document</label>
+            <input type="file" id="identityFront" class="file-input" accept="image/*,application/pdf" required>
+            <label for="identityBack" id="identityBackLabel" id="identityBackLabel" class="upload-label">Upload Back of Identification Document</label>
+            <input type="file" id="identityBack" class="file-input" accept="image/*,application/pdf" required>
+            <input type="text" id="address1" placeholder="Address Line 1" required>
+            <input type="text" id="address2" placeholder="Address Line 2">
+            <input type="text" id="unitNumber" placeholder="Unit Number">
+            <input type="text" id="postalCode" placeholder="Postal Code" required>
+            <label for="addressProof" id="addressLabel" class="upload-label">Upload Address Proof</label>
+            <input type="file" id="addressProof" class="file-input" accept="image/*,application/pdf">
+            <button type="submit">Submit</button>
+        </form>
+        <div class="additional-info">
+            <p>Please upload both the front and back of your identification document. The address proof is optional based on your document type.</p>
+        </div>
+    </div>  
+    <script>
+        document.getElementById('documentType').addEventListener('change', function() {
+            const identityFrontLabel = document.getElementById('identityFrontLabel');
+            const identityFront = document.getElementById('identityFront');
+            const identityBackLabel = document.getElementById('identityBackLabel');
+            const identityBack = document.getElementById('identityBack');
+            const addressLabel = document.getElementById('addressLabel');
+            const addressProof = document.getElementById('addressProof');
+
+            if (this.value !== 'Singaporean Citizen' && this.value !== 'PR') {
+                identityFrontLabel.style.display = 'block';
+                identityFront.style.display = 'block';
+                identityBackLabel.style.display = 'block';
+                identityBack.style.display = 'block';
+                addressLabel.style.display = 'block';
+                addressProof.style.display = 'block';
+            } else {
+                identityFrontLabel.style.display = 'block';
+                identityFront.style.display = 'block';
+                identityBackLabel.style.display = 'block';
+                identityBack.style.display = 'block';
+                addressLabel.style.display = 'none';
+                addressProof.style.display = 'none';
+            }
+        });
+
+        document.getElementById('amlForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = 'aml_loading.html';
+        });
+    </script>
+</body>
+</html>

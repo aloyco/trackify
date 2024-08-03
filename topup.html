@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackify | Top Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ffe6f7, #fff0f5);
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar .logo {
+            font-family: 'Chewy', cursive;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #6a00ff;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .top-up-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .top-up-form h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .top-up-form input {
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 300px;
+        }
+        .top-up-form button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #6a00ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .top-up-form button:hover {
+            background-color: #5a00cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Trackify</div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="insight.html">Insight</a>
+        <a href="wallet.html">Trackify Wallet</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="tips.html">Tips</a>
+        <a href="index.html">Logout</a>
+        <a href="help.html">Help</a>
+    </div>
+    <div class="main-content">
+        <form class="top-up-form" id="topUpForm">
+            <h2>Top Up Your Wallet</h2>
+            <input type="number" placeholder="Enter amount" id="amount" required>
+            <input type="text" placeholder="Card Number" id="cardNumber" required>
+            <input type="text" placeholder="CVV" id="cvv" required>
+            <input type="text" placeholder="Expiry Date (MM/YY)" id="expiryDate" required>
+            <button type="submit">Top Up</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('topUpForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const amount = parseFloat(document.getElementById('amount').value);
+            if (isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid amount');
+                return;
+            }
+
+            let balance = parseFloat(localStorage.getItem('balance')) || 0;
+            balance += amount;
+            localStorage.setItem('balance', balance.toFixed(2));
+
+            const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+            transactions.push({
+                date: new Date().toLocaleDateString(),
+                description: `Top-up: SGD ${amount.toFixed(2)}`,
+                amount: amount
+            });
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
